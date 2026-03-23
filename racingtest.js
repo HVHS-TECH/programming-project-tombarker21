@@ -80,6 +80,7 @@ function draw() {
   text ("is this working?",50,50);
   camera.x = car.x;
   camera.y = car.y;
+  camera.zoom = 0.5;
   
 
 
@@ -87,23 +88,23 @@ function draw() {
   //******************************************************/
   //Keyboard Movements//
   //******************************************************/
-  if (kb.pressing('left')) {
+  if (kb.pressing('a')) {
 
-    car.rotation = car.rotation - 1;
+    car.rotation = car.rotation - 2;
     car.direction = car.rotation;
   }
 
-  if (kb.pressing('right')) {
-    car.rotation = car.rotation + 1;
+  if (kb.pressing('d')) {
+    car.rotation = car.rotation + 2;
     car.direction = car.rotation;
 
   }
 
 
-  if (kb.pressing('up')) {
+  if (kb.pressing('w')) {
 
     if (car.speed<20){
-      car.speed += 1;
+      car.speed += 0.3;
     }
    
     car.direction = car.rotation;
@@ -111,8 +112,8 @@ function draw() {
 
 
 
-  if (kb.pressing('down')) {
-    car.speed -= 1;
+  if (kb.pressing('s')) {
+    car.speed -= 0.3;
     car.direction = car.rotation;
   }
 
