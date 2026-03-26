@@ -32,12 +32,12 @@ function setup() {
 
 
 
-  track = new Sprite(width / 2, height / 2, 5000, 5000, 'n');
+  track = new Sprite(width / 2, height / 2, 2000, 2000, 'n');
   track.image = (imgTrack)
   track.scale = 10000 / imgTrack.width;
-track.debug = true;
+  track.debug = true;
 
- finishLine = new Sprite(width / 2, 2105, 50, 50, 'n');
+  finishLine = new Sprite(width / 2, 2105, 50, 50, 'n');
   finishLine.image = (imgLine);
   finishLine.scale = 4;
 
@@ -48,9 +48,9 @@ track.debug = true;
   car.rotation = 90; //Added This
   car.maxSpeed = 20;
   car.speed = 0;
-   
 
- 
+
+
 
 
 
@@ -79,12 +79,12 @@ track.debug = true;
 function draw() {
   background('darkgreen');
   //allSprites.draw();
-  
-  text ("is this working?",50,50);
+
+  text("is this working?", 50, 50);
   camera.x = car.x;
   camera.y = car.y;
   camera.zoom = 0.5;
-  
+
 
 
 
@@ -106,10 +106,10 @@ function draw() {
 
   if (kb.pressing('w')) {
 
-    if (car.speed<20){
+    if (car.speed < 20) {
       car.speed += 0.3;
     }
-   
+
     car.direction = car.rotation;
   }
 
@@ -120,13 +120,13 @@ function draw() {
     car.direction = car.rotation;
   }
 
-console.log(car.speed);
+  console.log(car.speed);
 
 
-//if (car.overlaps(track)); {
-//console.log("this wokring");
+  if (car.overlaps(track)) {
+  console.log("this working");
 
-//}
+  }
 
 
   //******************************************************/	
