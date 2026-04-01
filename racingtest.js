@@ -18,7 +18,7 @@ function preload() {
 
   imgTrack = loadImage('assets/images/bahraintrackworking.png');
 
-  imgLine = loadImage('assets/images/Finshline.png');
+  imgLine = loadImage('assets/images/finshline.png');
 
 }
 //Variables
