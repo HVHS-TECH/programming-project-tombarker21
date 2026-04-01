@@ -25,6 +25,7 @@ function preload() {
 let width = 800;
 let height = 800;
 let timer = 0;
+let timerFinished;
 
 
 function setup() {
@@ -43,42 +44,21 @@ frameRate(60);
   track = new Sprite(width / 2, height / 2, 3200, 1800, 'n');
   track.image = (imgTrack)
   track.scale = 10000 / imgTrack.width;
-  track.debug = true;
 
-  finishLine = new Sprite(width / 2, 2105, 50, 50, 'n');
+  finishLine = new Sprite(width / 2, 2105, 20, 90, 'n');
   finishLine.image = (imgLine);
   finishLine.scale = 4;
+  finishLine.debug = true;
 
-  car = new Sprite(width / 2, height / 2, 50, 50);
+  car = new Sprite(width-500, 2105, 50, 50);
   car.image = (imgCar);
   car.scale = 0.75;
-  car.rotation = 90;
+  car.rotation = 180;
   car.maxSpeed = 20;
   car.speed = 0;
-  car.debug = true;
   
   timerBar = new Sprite(camera.x, camera.y, 300,300,'n');
-
-
-
-
-
-
-
-
-
-  //wallLH = new Sprite(0, imgTrack.height / 2, 8, imgTrack.height, 'k');
-
-  //wallRH = new Sprite(imgTrack.width, imgTrack.height / 2, 8, imgTrack.width, 'k');
-
-  //wallTop = new Sprite(imgTrack.width / 2, 0, imgTrack.width, 30, 'k');
-
-  //wallBot = new Sprite(imgTrack.width / 2, imgTrack.height, imgTrack.width, 30, 'k');
-
-  //wallLH.color = 'black';
-  //wallRH.color = 'black';
-  //wallTop.color = 'black';
-  //wallBot.color = 'black';
+  timerBar.color = "gray";
 
 
 }
@@ -148,6 +128,14 @@ timer = Math.round(timer*100)/100;
 timerBar.moveTowards(camera.x-(width+1000),camera.y-(height+20),1);
 timerBar.text = timer;
 timerBar.textSize = 40;
+
+if (car.overlaps(finishLine)){
+  console.log("timer");
+timerFinshed = timer;
+allSprites.removeAll();
+alert("Your final time was " + timerFinshed + " seconds. Please refresh the page to play again :)");
+
+}
 
 
 
